@@ -1,0 +1,56 @@
+reated by https://www.gitignore.io/api/vim
+
+### Vim ###
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+
+vim/bundle/.vundle/script-names.vim-scripts.org.json
+
+vim/bundle/ctrlp.vim/
+
+vim/bundle/indentpython.vim/
+
+vim/bundle/nerdtree/
+
+vim/bundle/Pydiction/
+
+vim/bundle/Zenburn/
+
+vim/bundle/YouCompleteMe/
+
+*.vim
+
+vim/bundle/vim-nerdtree-tabs/
+
+vim/bundle/vim-multiple-cursors/
+
+vim/bundle/vim-markdown-preview/
+
+vim/bundle/vim-instant-markdown/
+
+vim/bundle/vim-flavored-markdown/
+
+vim/bundle/vim-flake8/
+
+vim/bundle/syntastic/
+
+vim/bundle/supertab/
+
+vim/bundle/SimpylFold/
+
+vim/bundle/rope-vim/
+
+vim/bundle/python-vim-instant-markdown/
+
+vim/bundle/vim-colors-solarized/
+
+vim/bundle/vim-fugitive/
