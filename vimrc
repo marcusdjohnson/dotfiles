@@ -37,6 +37,11 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 
+"items
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+
+Plugin 'powerline/powerline'
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
@@ -130,4 +135,22 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitright
+"search highlight and incremental search
+set hlsearch
+set incsearch
 
+"powerline font
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+if has("gui_running")
+	   let s:uname = system("uname")
+	      if s:uname == "Darwin\n"
+		            set guifont=Inconsolata\ for\ Powerline:h15
+			       endif
+		       endif

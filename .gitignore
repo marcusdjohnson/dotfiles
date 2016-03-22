@@ -54,3 +54,9 @@ vim/bundle/python-vim-instant-markdown/
 vim/bundle/vim-colors-solarized/
 
 vim/bundle/vim-fugitive/
+
+vim/bundle/powerline/
+
+vim/bundle/vim-commentary/
+
+vim/bundle/vim-surround/
