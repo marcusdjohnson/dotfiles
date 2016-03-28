@@ -10,7 +10,7 @@ Plugin 'tpope/vim-fugitive'
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim' 
+Plugin 'kien/ctrlp.vim'
 "html
 Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
@@ -30,7 +30,6 @@ Plugin 'klen/rope-vim'
 Plugin 'ervandew/supertab'
 ""code folding
 Plugin 'tmhedberg/SimpylFold'
-
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
@@ -39,7 +38,6 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 
-Plugin 'powerline/powerline'
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
@@ -47,16 +45,17 @@ let g:SimpylFold_docstring_preview = 1
 
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
-
+let g:pydiction_location = '~/.vim/Pydiction/complete-dict'
 "custom keys
 let mapleader=" "
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>n  :bnext<CR>
 map <leader>b  :bprev<CR>
 map <leader>x  :bdelete<CR>
+map <leader>z  :bdelete!<CR>
 map <leader>=  <C-W><C-=>
-map <leader>j  <C-b>
-map <leader>k  <C-f>
+map <leader>j  <C-f>
+map <leader>k  <C-b>
 "
 call togglebg#map("<F5>")
 "colorscheme zenburn
