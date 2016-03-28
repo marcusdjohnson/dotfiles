@@ -34,6 +34,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 
+Plugin 'wakatime/vim-wakatime'
 "items
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -56,6 +57,8 @@ map <leader>z  :bdelete!<CR>
 map <leader>=  <C-W><C-=>
 map <leader>j  <C-f>
 map <leader>k  <C-b>
+map <leader>u  zR
+map <leader>w  :w<CR>
 "
 call togglebg#map("<F5>")
 "colorscheme zenburn
@@ -181,3 +184,7 @@ nnoremap <silent> <C-h> :call WinMove('h')<cr>
 nnoremap <silent> <C-j> :call WinMove('j')<cr>
 nnoremap <silent> <C-k> :call WinMove('k')<cr>
 nnoremap <silent> <C-l> :call WinMove('l')<cr>
+
+"80 character line
+highlight ColorColumn ctermbg=darkblue
+call matchadd('ColorColumn', '\%81v', 100)
