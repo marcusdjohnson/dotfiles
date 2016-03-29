@@ -10,13 +10,13 @@ Plugin 'tpope/vim-fugitive'
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 "html
 Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
-"python sytax checker
+"python syntax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
@@ -50,16 +50,39 @@ let g:pydiction_location = '~/.vim/Pydiction/complete-dict'
 "custom keys
 let mapleader=" "
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"Buffer nav
 map <leader>n  :bnext<CR>
 map <leader>b  :bprev<CR>
 map <leader>x  :bdelete<CR>
 map <leader>z  :bdelete!<CR>
+"window resizing
 map <leader>=  <C-W><C-=>
+map <leader>-  :res -5<CR>
+map <leader>+  :res +5<CR>
+"page up and down with jk
 map <leader>j  <C-f>
 map <leader>k  <C-b>
+"unfold all
 map <leader>u  zR
+"save
 map <leader>w  :w<CR>
-"
+map <leader>q  :q!<CR>
+"open brackets find '(', '{', & '['
+"close bracket Change Insided Bracket '(', '{', & '['
+map <leader>9  /(<CR>
+map <leader>0  ci)
+map <leader>[  /[<CR>
+map <leader>]  ci]
+map <leader>{  /{<CR>
+map <leader>}  ci}
+"temporarily toggles off hlsearch 
+map <leader>h  :noh<CR>
+"change inner word by default
+map <leader>c  ciw
+map <leader>C  ciW
+"comment a paragraph
+map <leader>/  gcap
+
 call togglebg#map("<F5>")
 "colorscheme zenburn
 "set guifont=Monaco:h14
@@ -153,7 +176,7 @@ set incsearch
 "   %L Number of lines in buffer.
 "   %c Column number.
 "   %P percentage through buffer
-set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ (%P)
+set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ (%P)\ %{fugitive#statusline()}
 set laststatus=2
 " change highlighting based on mode
 if version >= 700
