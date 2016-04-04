@@ -5,11 +5,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
 "git interface
 Plugin 'tpope/vim-fugitive'
 "filesystem
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'ctrlpvim/ctrlp.vim'
 "html
 Plugin 'isnowfy/python-vim-instant-markdown'
@@ -17,15 +16,15 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 "python syntax checker
-"Plugin 'nvie/vim-flake8'
+Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
-
+Plugin 'ivanov/vim-ipython'
 "auto-completion stuff
+Plugin 'Townk/vim-autoclose'
 Plugin 'klen/python-mode'
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'klen/rope-vim'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 ""code folding
@@ -33,6 +32,7 @@ Plugin 'tmhedberg/SimpylFold'
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'atelierbram/vim-colors_duotones'
 
 Plugin 'wakatime/vim-wakatime'
 "items
@@ -42,14 +42,21 @@ Plugin 'tpope/vim-commentary'
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
+let g:syntastic_python_python_exec = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 let g:SimpylFold_docstring_preview = 1
-
+"see if this fixes pymode hanging. I think it tries to scan the current
+"working directory. Which is often my home drive depending on how I initialize
+"vim.
+"let g:pymode_rope_lookup_project = 0
+set autochdir
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:pydiction_location = '~/.vim/Pydiction/complete-dict'
 "custom keys
 let mapleader=" "
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"ctrlp
+map <leader>\  :CtrlP<CR>
 "Buffer nav
 map <leader>n  :bnext<CR>
 map <leader>m  :bprev<CR>
@@ -62,10 +69,13 @@ map <leader>+  :res +5<CR>
 "page up and down with jk
 map <leader>j  <C-f>
 map <leader>k  <C-b>
+map <leader>w  5W
+map <leader>4  $
+map <leader>6  ^
 "unfold all
 map <leader>u  zR
 "save
-map <leader>w  :w<CR>
+map <leader>s  :w<CR>
 map <leader>q  :q!<CR>
 "open brackets find '(', '{', & '['
 "close bracket Change Insided Bracket '(', '{', & '['
@@ -75,7 +85,7 @@ map <leader>[  /[<CR>
 map <leader>]  ci]
 map <leader>{  /{<CR>
 map <leader>}  ci}
-"temporarily toggles off hlsearch 
+"temporarily toggles off hlsearch
 map <leader>h  :noh<CR>
 "change inner word by default
 map <leader>c  ciw
@@ -83,7 +93,7 @@ map <leader>C  ciW
 "comment a paragraph
 map <leader>/  gcap
 
-call togglebg#map("<F5>")
+call togglebg#map("<F8>")
 "colorscheme zenburn
 "set guifont=Monaco:h14
 
@@ -152,7 +162,7 @@ set backspace=indent,eol,start
 "Folding based on indentation:
 autocmd FileType python set foldmethod=indent
 "use space to open folds
-nnoremap <space> za 
+nnoremap <space> za
 "----------Stop python PEP 8 stuff--------------
 
 "js stuff"
@@ -178,7 +188,7 @@ set incsearch
 "   %P percentage through buffer
 set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ (%P)\ %{fugitive#statusline()}
 set laststatus=2
-" change highlighting based on mode
+"change highlighting based on mode
 if version >= 700
   highlight statusLine cterm=bold ctermfg=white ctermbg=blue
     au InsertLeave * highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
@@ -202,7 +212,7 @@ func! WinMove(key)
         exec "wincmd ".a:key
     endif
 endfu
- 
+
 nnoremap <silent> <C-h> :call WinMove('h')<cr>
 nnoremap <silent> <C-j> :call WinMove('j')<cr>
 nnoremap <silent> <C-k> :call WinMove('k')<cr>
@@ -211,3 +221,9 @@ nnoremap <silent> <C-l> :call WinMove('l')<cr>
 "80 character line
 highlight ColorColumn ctermbg=darkblue
 call matchadd('ColorColumn', '\%81v', 100)
+
+set cursorline
+hi CursorLine   ctermbg=darkblue
+"for esc delay (testing)
+set timeoutlen=1000 ttimeoutlen=0
+
