@@ -83,7 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . /usr/local/etc/profile.d/z.sh
-alias vim='mvim -v'
+alias vim='nvim'
+alias pyt='python3 -m py.test'
+alias q='exit'
 bindkey -v
 # 10ms for key sequences
 KEYTIMEOUT=1
