@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+
 export ZSH=/Users/Mac/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -89,4 +90,9 @@ alias q='exit'
 bindkey -v
 # 10ms for key sequences
 KEYTIMEOUT=1
+
+#virtualenvwrapper settings
+source /Library/Frameworks/Python.framework/Versions/3.5/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Documents/code/
 

@@ -19,12 +19,18 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ivanov/vim-ipython'
 "auto-completion stuff
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'Townk/vim-autoclose'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
-""code folding
+Plugin 'SirVer/ultisnips'
+Plugin 'ap/vim-css-color'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+" code folding
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'myusuf3/numbers.vim'
+Plugin 'jmcantrell/vim-virtualenv'
 
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
@@ -42,11 +48,31 @@ Plugin 'tpope/vim-commentary'
 Plugin 'benmills/vimux'
 Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-misc'
-"Plugin 'jceb/vim-orgmode'
+
 call vundle#end()
 filetype plugin indent on    " enables filetype detection
 let g:syntastic_python_python_exec = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 let g:SimpylFold_docstring_preview = 1
+let g:ctrlp_working_path_mode = 'ra'
+
+"django surround mappings
+let g:surround_{char2nr("v")} = "{{ \r }}"
+let g:surround_{char2nr("{")} = "{{ \r }}"
+let g:surround_{char2nr("%")} = "{% \r %}"
+let g:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+let g:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let g:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let g:surround_{char2nr("l")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let g:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-w>"
+let g:UltiSnipsJumpForwardTrigger="<c-x>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 set autochdir
 "autocomplete
 "custom keys
@@ -56,6 +82,9 @@ au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
 nnoremap / /\v
 "ctrlp
 map <leader>\  :CtrlP<CR>
+map <leader>y  :setfiletype htmldjango<CR>
+"Notes-python code block
+map <leader>p  ipython:     {{{python }}}<esc>Tni<CR><CR><esc>k
 "Buffer nav
 map <leader>,  :bnext<CR>
 map <leader>m  :bprev<CR>
@@ -102,6 +131,19 @@ set noswapfile
 "turn on numbering
 set nu
 
+" Add the virtualenv's site-packages to vim path
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif
 
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
@@ -208,6 +250,7 @@ nnoremap <silent> <C-l> :call WinMove('l')<cr>
 highlight ColorColumn ctermbg=darkblue
 call matchadd('ColorColumn', '\%81v', 100)
 
+let g:airline#extensions#tabline#enabled = 1
 set cursorline
 hi CursorLine   ctermbg=darkblue
 "for esc delay (testing)
