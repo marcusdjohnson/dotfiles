@@ -10,6 +10,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 "filesystem
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'danro/rename.vim'
 "html
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
@@ -20,6 +21,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ivanov/vim-ipython'
 "auto-completion stuff
 Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Shougo/deoplete.nvim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -54,6 +56,11 @@ filetype plugin indent on    " enables filetype detection
 let g:syntastic_python_python_exec = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 let g:SimpylFold_docstring_preview = 1
 let g:ctrlp_working_path_mode = 'ra'
+
+"deoplete autocompletion
+"let g:deoplete#enable_at_startup = 1
+"youcompleteme
+let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 
 "django surround mappings
 let g:surround_{char2nr("v")} = "{{ \r }}"
