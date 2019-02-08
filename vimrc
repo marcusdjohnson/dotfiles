@@ -21,6 +21,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ivanov/vim-ipython'
 "auto-completion stuff
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
 " Plugin 'Shougo/deoplete.nvim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'davidhalter/jedi-vim'
@@ -50,6 +51,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'benmills/vimux'
 Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-misc'
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 filetype plugin indent on    " enables filetype detection
