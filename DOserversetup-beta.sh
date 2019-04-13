@@ -1,15 +1,4 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Consolas;}
-{\colortbl;\red255\green255\blue255;\red27\green31\blue34;\red21\green23\blue26;\red244\green246\blue249;
-\red6\green33\blue79;\red36\green38\blue41;\red235\green236\blue237;\red43\green39\blue19;\red27\green31\blue34;
-\red244\green246\blue249;\red16\green60\blue192;}
-{\*\expandedcolortbl;;\cssrgb\c14118\c16078\c18039;\cssrgb\c10588\c12157\c13725\c4706;\cssrgb\c96471\c97255\c98039;
-\cssrgb\c1176\c18431\c38431;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\cssrgb\c22353\c20000\c9412;\cssrgb\c14118\c16078\c18039;
-\cssrgb\c96471\c97255\c98039;\cssrgb\c6667\c33333\c80000;}
-\margl1440\margr1440\vieww33400\viewh19580\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 apt update\
+apt update\
 apt upgrade\
 apt install golang\
 go get github.com/subfinder/subfinder\
