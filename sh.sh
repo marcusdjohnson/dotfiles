@@ -1,5 +1,5 @@
-apt install update
-apt install upgrade
+apt update
+apt upgrade
 apt install python
 apt install python-pip
 apt install python3-pip
