@@ -1,3 +1,9 @@
+apt install update
+apt install upgrade
+apt install python
+apt install python-pip
+apt install python3-pip
+apt install cmake
 mkdir ~/tools
 cd ~/tools
 git clone https://github.com/join?return_to=%2Fvysecurity%2FDomLink
