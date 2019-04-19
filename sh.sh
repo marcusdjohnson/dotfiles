@@ -1,17 +1,15 @@
 sudo apt udate
 sudo apt upgrade 
-sudo apt install python-pip
-sudo apt install python3-pip
-sudo pip install --upgrade pip
-sudo pip3 install --upgrade pip
 sudo apt-get install libcurl4-gnutls-dev
 sudo add-apt-repository ppa:gophers/archive
 sudo apt-get update
 sudo apt-get install golang-1.10-go
+sudo apt install python3-pip
 mkdir ~/tools
 cd tools
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r
+sudo apt install python-pip
 sudo pip install -r requirements.txt
 cd ~/tools
 git clone https://github.com/v0re/dirb.git
@@ -45,17 +43,12 @@ cd ~/tools/massdns
 make
 make install
 cd ~
-go get github.com/OJ/gobuster
-cd ~
 git clone https://github.com/marcusdjohnson/dotfiles.git
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
-echo "export GOPATH=$HOME/go" > ~\.bashrc
-echo "alias sublist='~/tools/Sublist3r/sublist3r.py -d'" > ~\.bashrc
-echo "alias domlink='python ~/tools/DomLink/domLink.py'" > ~\.bashrc
-echo "alias linkfinder='python ~/tools/LinkFinder/linkfinder.py'" > ~\.bashrc
-echo "alias gobuster='~/go/bin/gobuster'" > ~\.bashrc
-echo "alias masscan='masscan --ports 0-65535'" > ~\.bashrc
+cp ~/dotfiles/.bashrc ~/.bashrc
+go get github.com/OJ/gobuster
+cd ~
 # open vim run :plugininstall
 # wakatime apikey : 2077dd05-f247-4215-a05b-edeb66293c19
