@@ -1,8 +1,9 @@
-sudo apt install libcurl4-gnutls-dev
-sudo add-apt-repository ppa:gophers/archive
 sudo apt udate
-sudo apt upgrade
-sudo apt install golang-1.10-go
+sudo apt upgrade 
+sudo apt-get install libcurl4-gnutls-dev
+sudo add-apt-repository ppa:gophers/archive
+sudo apt-get update
+sudo apt-get install golang-1.10-go
 sudo apt install python3-pip
 mkdir ~/tools
 cd tools
@@ -34,8 +35,7 @@ sudo pip install requests
 sudo pip install argparse
 sudo pip install jsbeautifier
 sudo pip install requests-file
-sudo apt install git gcc make libpcap-dev
-sudo apt intall masscan
+sudo apt-get install git gcc make libpcap-dev
 cd ~/tools/LinkFinder
 python setup.py install
 cd ~/tools/massdns
@@ -48,6 +48,8 @@ cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
 cp ~/dotfiles/.bashrc ~/.bashrc
 source ~/.bashrc
+sudo apt intall masscan
+sudo apt install golang-go
 go get github.com/OJ/gobuster
 cd ~
 # open vim run :plugininstall
