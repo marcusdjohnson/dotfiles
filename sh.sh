@@ -48,6 +48,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
 cp ~/dotfiles/.bashrc ~/.bashrc
+source ~/.bashrc
+apt install golang-go
 go get github.com/OJ/gobuster
 cd ~
 # open vim run :plugininstall
