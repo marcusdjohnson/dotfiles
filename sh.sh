@@ -1,8 +1,8 @@
-sudo apt-get install libcurl4-gnutls-dev
+sudo apt install libcurl4-gnutls-dev
 sudo add-apt-repository ppa:gophers/archive
 sudo apt udate
 sudo apt upgrade
-sudo apt-get install golang-1.10-go
+sudo apt install golang-1.10-go
 sudo apt install python3-pip
 mkdir ~/tools
 cd tools
@@ -34,7 +34,7 @@ sudo pip install requests
 sudo pip install argparse
 sudo pip install jsbeautifier
 sudo pip install requests-file
-sudo apt-get install git gcc make libpcap-dev
+sudo apt install git gcc make libpcap-dev
 sudo apt intall masscan
 cd ~/tools/LinkFinder
 python setup.py install
