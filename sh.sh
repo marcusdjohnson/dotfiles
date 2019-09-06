@@ -13,19 +13,7 @@ sudo apt-get install -y rename
 sudo apt-get install -y xargs
 sudo apt install -y python-pip
 sudo apt install -y python3-pip
-
-wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz.
-sudo tar -xvf go1.12.7.linux-amd64.tar.gz 
-sudo mv go /usr/local.
-export GOROOT=/usr/local/go.
-export GOPATH=$HOME/Projects/Proj1.
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH.
-echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
-echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
-echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
-source ~/.bash_profile
-sleep 1
-					
+				
 sudo apt-get install -y gccgo-go
 sudo apt-get install -y nmap
 
