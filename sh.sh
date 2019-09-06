@@ -26,7 +26,7 @@ echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
 sleep 1
 					
-
+sudo apt-get install -y gccgo-go
 sudo apt-get install -y nmap
 
 mkdir ~/tools
@@ -62,14 +62,14 @@ git clone https://github.com/GerbenJavado/LinkFinder.git
 curl https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f4d10/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt > content_discovery_all.txt
 curl https://gist.githubusercontent.com/jhaddix/6b777fb004768b388fefadf9175982ab/raw/c9bb46af0ed31bdabac3dda1dd0fafddfd8f329e/WAHH_Task_Checklist.md > wahh_task_checklist.md
 
-sudo pip3 install -y wfuzz
-sudo pip3 install -y wafw00f
+sudo pip3 install wfuzz
+sudo pip3 install wafw00f
 
-sudo snap install -y amass
-sudo pip install -y requests
-sudo pip install -y argparse
-sudo pip install -y jsbeautifier
-sudo pip install -y requests-file
+sudo snap install amass
+sudo pip install requests
+sudo pip install argparse
+sudo pip install jsbeautifier
+sudo pip install requests-file
 sudo apt-get install -y git gcc make libpcap-dev
 
 cd ~/tools/LinkFinder
