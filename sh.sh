@@ -80,7 +80,6 @@ make
 make install
 
 cd ~
-git clone https://github.com/marcusdjohnson/dotfiles.git
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 cp ~/dotfiles/vimrc ~/.vimrc
