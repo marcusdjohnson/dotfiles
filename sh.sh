@@ -11,7 +11,7 @@ sudo apt-get install -y libldns-dev
 sudo apt-get install -y python-dnspython
 sudo apt-get install -y rename
 sudo apt-get install -y xargs
-sudo apt install -y python-pi
+sudo apt install -y python-pip
 sudo apt install -y python3-pip
 
 wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz.
