@@ -13,7 +13,7 @@ sudo apt-get install -y rename
 sudo apt-get install -y xargs
 sudo apt install -y python-pip
 sudo apt install -y python3-pip
-				
+sudo snap install chromium				
 sudo apt-get install -y gccgo-go
 sudo apt-get install -y nmap
 
