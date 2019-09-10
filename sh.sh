@@ -18,6 +18,11 @@ sudo apt-get install -y gccgo-go
 sudo apt-get install -y nmap
 sudo apt install -y awscli
 
+git clone https://github.com/nahamsec/recon_profile.git
+cd recon_profile
+cat bash_profile >> ~/.bash_profile
+source ~/.bash_profile
+
 mkdir ~/tools
 cd ~/tools
 git clone https://github.com/aboul3la/Sublist3r.git
