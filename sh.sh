@@ -16,6 +16,7 @@ sudo apt install -y python3-pip
 sudo snap install chromium				
 sudo apt-get install -y gccgo-go
 sudo apt-get install -y nmap
+sudo apt install -y awscli
 
 mkdir ~/tools
 cd ~/tools
@@ -43,7 +44,9 @@ git clone https://github.com/tomdev/teh_s3_bucketeers.git
 go get github.com/tomnomnom/waybackurls
 git clone https://github.com/maurosoria/dirsearch.git
 git clone https://github.com/nahamsec/lazys3.git
+git clone https://github.com/jobertabma/virtual-host-discovery.git
 git clone https://github.com/jhaddix/scripts.git
+git clone https://github.com/nahamsec/JSParser.git
 git clone https://github.com/danielmiessler/SecLists.git
 curl https://gist.githubusercontent.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt > all.txt
 git clone https://github.com/GerbenJavado/LinkFinder.git
@@ -59,9 +62,22 @@ sudo pip install argparse
 sudo pip install jsbeautifier
 sudo pip install requests-file
 sudo apt-get install -y git gcc make libpcap-dev
+cd ~/tools/JSParser
+sudo python setup.py install
 
 cd ~/tools/LinkFinder
 python setup.py install
+cd ~/tools/
+
+git clone https://github.com/yassineaboukir/asnlookup.git
+cd ~/tools/asnlookup
+pip install -r requirements.txt
+cd ~/tools/
+
+git clone https://github.com/wpscanteam/wpscan.git
+cd wpscan*
+sudo gem install bundler && bundle install --without test
+cd ~/tools/
 
 cd ~/tools/massdns
 make
