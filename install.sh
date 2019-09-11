@@ -1,31 +1,201 @@
 #!/bin/bash
-############################
-# .make.sh
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
+sudo apt-get -y update
+sudo apt-get -y upgrade
 
-########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc vim zshrc tmux.conf"    # list of files/folders to symlink in homedir
+sudo apt-get install -y libcurl4-openssl-dev
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y jq
+sudo apt-get install -y ruby-full
+sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
+sudo apt-get install -y python-setuptools
+sudo apt-get install -y libldns-dev
+sudo apt-get install -y python3-pip
+sudo apt-get install -y python-pip
+sudo apt-get install -y python-dnspython
+sudo apt-get install -y git
+sudo apt-get install -y rename
+sudo apt-get install -y xargs
 
-##########
+echo "installing bash_profile aliases from recon_profile"
+git clone https://github.com/nahamsec/recon_profile.git
+cd recon_profile
+cat bash_profile >> ~/.bash_profile
+source ~/.bash_profile
+cd ~/tools/
+echo "done"
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
+sudo pip3 install wfuzz
+sudo pip3 install wafw00f
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+#install go
+if [[ -z "$GOPATH" ]];then
+echo "It looks like go is not installed, would you like to install it now"
+PS3="Please select an option : "
+choices=("yes" "no" )
+select choice in "${choices[@]}"; do
+        case $choice in
+                yes)
+
+					echo "Installing Golang"
+					wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+					sudo tar -xvf go1.12.7.linux-amd64.tar.gz
+					sudo mv go /usr/local
+					export GOROOT=/usr/local/go
+					export GOPATH=$HOME/go
+					export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+					echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
+					echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
+					echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile	
+					source ~/.bash_profile
+					sleep 1
+					break
+					;;
+				no)
+					echo "Please install go and rerun this script"
+					echo "Aborting installation..."
+					exit 1
+					;;
+	esac	
 done
+fi
+
+
+#Don't forget to set up AWS credentials!
+echo "Don't forget to set up AWS credentials!"
+apt install -y awscli
+echo "Don't forget to set up AWS credentials!"
+
+
+
+#create a tools folder in ~/
+mkdir ~/tools
+cd ~/tools/
+
+#install aquatone
+echo "Installing Aquatone"
+go get github.com/michenriksen/aquatone
+echo "done"
+
+#install chromium
+echo "Installing Chromium"
+sudo snap install chromium
+echo "done"
+
+echo "installing JSParser"
+git clone https://github.com/nahamsec/JSParser.git
+cd JSParser*
+sudo python setup.py install
+cd ~/tools/
+echo "done"
+
+echo "installing Sublist3r"
+git clone https://github.com/aboul3la/Sublist3r.git
+cd Sublist3r*
+pip install -r requirements.txt
+cd ~/tools/
+echo "done"
+
+
+echo "installing teh_s3_bucketeers"
+git clone https://github.com/tomdev/teh_s3_bucketeers.git
+cd ~/tools/
+echo "done"
+
+
+echo "installing wpscan"
+git clone https://github.com/wpscanteam/wpscan.git
+cd wpscan*
+sudo gem install bundler && bundle install --without test
+cd ~/tools/
+echo "done"
+
+echo "installing dirsearch"
+git clone https://github.com/maurosoria/dirsearch.git
+cd ~/tools/
+echo "done"
+
+
+echo "installing lazys3"
+git clone https://github.com/nahamsec/lazys3.git
+cd ~/tools/
+echo "done"
+
+echo "installing virtual host discovery"
+git clone https://github.com/jobertabma/virtual-host-discovery.git
+cd ~/tools/
+echo "done"
+
+
+echo "installing sqlmap"
+git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+cd ~/tools/
+echo "done"
+
+echo "installing knock.py"
+git clone https://github.com/guelfoweb/knock.git
+cd ~/tools/
+echo "done"
+
+echo "installing lazyrecon"
+git clone https://github.com/nahamsec/lazyrecon.git
+cd ~/tools/
+echo "done"
+
+echo "installing nmap"
+sudo apt-get install -y nmap
+echo "done"
+
+echo "installing massdns"
+git clone https://github.com/blechschmidt/massdns.git
+cd ~/tools/massdns
+make
+cd ~/tools/
+echo "done"
+
+echo "installing asnlookup"
+git clone https://github.com/yassineaboukir/asnlookup.git
+cd ~/tools/asnlookup
+pip install -r requirements.txt
+cd ~/tools/
+echo "done"
+
+echo "installing httprobe"
+go get -u github.com/tomnomnom/httprobe 
+echo "done"
+
+echo "installing unfurl"
+go get -u github.com/tomnomnom/unfurl 
+echo "done"
+
+echo "installing waybackurls"
+go get github.com/tomnomnom/waybackurls
+echo "done"
+
+echo "downloading Seclists"
+cd ~/tools/
+git clone https://github.com/danielmiessler/SecLists.git
+cd ~/tools/SecLists/Discovery/DNS/
+##THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
+cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
+cd ~/tools/
+echo "done"
+git clone https://github.com/jhaddix/tbhm.git
+curl https://gist.githubusercontent.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt > all.txt
+curl https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f4d10/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt > content_discovery_all.txt
+curl https://gist.githubusercontent.com/jhaddix/6b777fb004768b388fefadf9175982ab/raw/c9bb46af0ed31bdabac3dda1dd0fafddfd8f329e/WAHH_Task_Checklist.md > wahh_task_checklist.md
+sudo apt intall -y masscan
+go get github.com/OJ/gobuster
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+sudo snap install amass
+
+cp ~/dotfiles/vimrc ~/.vimrc
+cp ~/dotfiles/tmux.conf ~/.tmux.conf
+
+echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
+ls -la
+echo "One last time: don't forget to set up AWS credentials in ~/.aws/!"
