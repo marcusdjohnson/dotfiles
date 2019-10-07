@@ -182,6 +182,7 @@ cd ~/tools/SecLists/Discovery/DNS/
 cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
 cd ~/tools/
 echo "done"
+git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git
 git clone https://github.com/jhaddix/tbhm.git
 curl https://gist.githubusercontent.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt > all.txt
 curl https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f4d10/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt > content_discovery_all.txt
@@ -189,7 +190,7 @@ curl https://gist.githubusercontent.com/jhaddix/6b777fb004768b388fefadf9175982ab
 sudo apt intall -y masscan
 go get github.com/OJ/gobuster
 go get -u github.com/tomnomnom/gf
-go get -u github.com/tomnomnom/httprobe
+
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
