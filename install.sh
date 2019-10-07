@@ -188,6 +188,8 @@ curl https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f4d10
 curl https://gist.githubusercontent.com/jhaddix/6b777fb004768b388fefadf9175982ab/raw/c9bb46af0ed31bdabac3dda1dd0fafddfd8f329e/WAHH_Task_Checklist.md > wahh_task_checklist.md
 sudo apt intall -y masscan
 go get github.com/OJ/gobuster
+go get -u github.com/tomnomnom/gf
+go get -u github.com/tomnomnom/httprobe
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
