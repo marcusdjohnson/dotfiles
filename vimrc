@@ -14,19 +14,17 @@ Plugin 'danro/rename.vim'
 "html
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 "python syntax checker
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ivanov/vim-ipython'
 "auto-completion stuff
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
 " Plugin 'Shougo/deoplete.nvim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
 Plugin 'ap/vim-css-color'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -63,6 +61,9 @@ let g:ctrlp_working_path_mode = 'ra'
 "let g:deoplete#enable_at_startup = 1
 "youcompleteme
 let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
+
+"vim-markdown-preview
+let vim_markdown_preview_pandoc=1
 
 "django surround mappings
 let g:surround_{char2nr("v")} = "{{ \r }}"
