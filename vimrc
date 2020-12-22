@@ -23,7 +23,6 @@ Plugin 'ivanov/vim-ipython'
 Plugin 'mattn/emmet-vim'
 " Plugin 'Shougo/deoplete.nvim'
 Plugin 'Townk/vim-autoclose'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'ap/vim-css-color'
 " Snippets are separated from the engine. Add this if you want them:
